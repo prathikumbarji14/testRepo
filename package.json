@@ -2,8 +2,10 @@
   "name": "tab-6-mapping-review",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/shared/index.js",
+  "types": "dist/shared/index.d.ts",
   "scripts": {
-    "build": "tsc --noEmit",
+    "build": "tsc",
     "test": "jest"
   },
   "devDependencies": {
@@ -14,6 +16,7 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": ["/node_modules/", "/dist/"]
   }
 }

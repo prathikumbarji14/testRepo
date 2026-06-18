@@ -187,3 +187,37 @@ describe('incompleteReasons conditionality', () => {
     expect(validateFieldContracts(dto)).toHaveLength(0);
   });
 });
+
+describe('required ID fields', () => {
+  it('rejects empty mappingId', () => {
+    const violations = validateFieldContracts(buildValidDTO({ mappingId: '' }));
+    expect(violations.some(v => v.field === 'mappingId')).toBe(true);
+  });
+
+  it('rejects whitespace-only mappingId', () => {
+    const violations = validateFieldContracts(buildValidDTO({ mappingId: '   ' }));
+    expect(violations.some(v => v.field === 'mappingId')).toBe(true);
+  });
+
+  it('accepts a valid mappingId', () => {
+    expect(validateFieldContracts(buildValidDTO({ mappingId: '550e8400-e29b-41d4-a716-446655440000' }))).toHaveLength(0);
+  });
+
+  it('rejects empty sourceDocumentId', () => {
+    const violations = validateFieldContracts(buildValidDTO({ sourceDocumentId: '' }));
+    expect(violations.some(v => v.field === 'sourceDocumentId')).toBe(true);
+  });
+
+  it('accepts a valid sourceDocumentId', () => {
+    expect(validateFieldContracts(buildValidDTO({ sourceDocumentId: 'doc-001' }))).toHaveLength(0);
+  });
+
+  it('rejects empty targetRequirementId', () => {
+    const violations = validateFieldContracts(buildValidDTO({ targetRequirementId: '' }));
+    expect(violations.some(v => v.field === 'targetRequirementId')).toBe(true);
+  });
+
+  it('accepts a valid targetRequirementId', () => {
+    expect(validateFieldContracts(buildValidDTO({ targetRequirementId: 'req-042' }))).toHaveLength(0);
+  });
+});
