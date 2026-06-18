@@ -1,0 +1,64 @@
+# TAB-6 — AI Mapping Decision Review
+# CI pipeline stub created in TAB-7 (Phase 0 — Foundation).
+# Each downstream story expands the relevant job in-place.
+
+name: TAB-6 AI Mapping Decision Review
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - 'feature/tab-6**'
+      - 'feature/tab-7**'
+      - 'feature/tab-8**'
+      - 'feature/tab-9**'
+      - 'feature/tab-1[0-4]**'
+
+jobs:
+
+  # TAB-8: DTO definition
+  dto-contract:
+    name: "TAB-8 — DTO Contract Tests"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Placeholder — implement in TAB-8
+        run: echo "dto-contract job placeholder"
+
+  # TAB-9 / TAB-12: Backend services
+  backend-services:
+    name: "TAB-9/12 — Completeness Validation & Persistence"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Placeholder — implement in TAB-9 / TAB-12
+        run: echo "backend-services job placeholder"
+
+  # TAB-11: API layer
+  api-layer:
+    name: "TAB-11 — Review-Queue API"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Placeholder — implement in TAB-11
+        run: echo "api-layer job placeholder"
+
+  # TAB-10 / TAB-13: UI
+  ui:
+    name: "TAB-10/13 — UI Review Panel"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Placeholder — implement in TAB-10 / TAB-13
+        run: echo "ui job placeholder"
+
+  # TAB-14: E2E fidelity verification
+  e2e-fidelity:
+    name: "TAB-14 — Confidence Score Fidelity E2E"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Placeholder — implement in TAB-14
+        run: echo "e2e-fidelity job placeholder"
